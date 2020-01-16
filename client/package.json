@@ -12,6 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.1",
+<<<<<<< HEAD
+=======
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.2.2",
+>>>>>>> Created List Uploaded Image Pag
     "vue": "^2.6.11",
     "vue-hot-reload-api": "^2.3.4"
   },
