@@ -1,17 +1,18 @@
 <template>
-  <div class="d-flex justify-content-center mt-5">
-    <b-card no-body class="overflow-hidden" style="min-width: 1000px; min-height: 500px">
-      <b-row no-gutters>
-        <b-col md="6">
-          <b-card-img :src="this.img" class="rounded-0"></b-card-img>
-        </b-col>
-        <b-col md="6">
-          <b-card-body title="People Detection">
-            <b-card-text>umur : {{umur}}</b-card-text>
-          </b-card-body>
-        </b-col>
-      </b-row>
-    </b-card>
+  <div>
+    <div class="card-container">
+      <div class="card-content bg-dark text-white">
+        <img
+          class="card-img"
+          :src="img"
+          alt="Card image"
+          style="max-width:600px; max-height: 400px"
+        />
+        <div class="card-img-overlay">
+          <h4 class="card-title">Umurnya : {{age}}</h4>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,13 +20,53 @@
 export default {
   data() {
     return {
-      img: "https://picsum.photos/400/400/?image=20",
-      umur: "data umur"
+      img:
+        "https://dearevanhansen.com/wp-content/uploads/2019/01/AndrewBarthFeldman_cNathanJohnson.jpg",
+      age: 20
     };
   },
-  methods: {}
+  props: {
+    id: String
+  },
+  methods: {
+    getDataDetail() {
+      axios({
+        url: `http://localhost:3000/person/${this.id}`,
+        method: "GET"
+      })
+        .then(({ data }) => {
+          this.img = data.person.image;
+          this.age = data.person.age;
+        })
+        .catch(err => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            footer: "<a href>Why do I have this issue?</a>"
+          });
+        });
+    }
+  }
 };
 </script>
 
 <style>
+.card-container {
+  position: relative;
+}
+.card-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: box-shadow 0.3s;
+  transform: translate(-50%, 25%);
+}
+.card-container:hover {
+  /* transform: scale(0.9); */
+  box-shadow: 0 0 11px black;
+}
+.card-title {
+  color: #48b883;
+}
 </style>
