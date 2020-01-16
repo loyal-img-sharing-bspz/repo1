@@ -1,13 +1,24 @@
 <template>
-  
+  <div>
+    <navbar></navbar>
+    <h1>{{message}}</h1>
+  </div>
 </template>
 
 <script>
-export default {
+import navbar from "./components/navbar";
 
-}
+export default {
+  components: {
+    navbar
+  },
+  data() {
+    return {
+      message: "hello world"
+    };
+  }
+};
 </script>
 
 <style>
-
 </style>
