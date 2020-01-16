@@ -1,7 +1,17 @@
-<template></template>
+<template>
+  <div>
+    <navbar></navbar>
+  </div>
+</template>
 
 <script>
-export default {};
+import navbar from "./components/navbar";
+
+export default {
+  components: {
+    navbar
+  }
+};
 </script>
 
 <style>
