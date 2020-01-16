@@ -16,8 +16,8 @@ export default {
   components: {
     ImageList,
     LandingPage,
-     navbar,
-     detailCard
+    navbar,
+    detailCard
   },
   data() {
     return {
