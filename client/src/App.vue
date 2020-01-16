@@ -1,16 +1,18 @@
 <template>
   <div>
     <navbar></navbar>
-    <h1>{{message}}</h1>
+    <detailCard></detailCard>
   </div>
 </template>
 
 <script>
 import navbar from "./components/navbar";
+import detailCard from "./components/detailCard";
 
 export default {
   components: {
-    navbar
+    navbar,
+    detailCard
   },
   data() {
     return {
