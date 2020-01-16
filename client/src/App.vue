@@ -15,7 +15,9 @@ import LandingPage from "./views/LandingPage";
 export default {
   components: {
     ImageList,
-    LandingPage
+    LandingPage,
+     navbar,
+     detailCard
   },
   data() {
     return {
