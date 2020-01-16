@@ -20,6 +20,10 @@
           <a class="nav-item nav-link active" href="#">Home</a>
         </div>
       </div>
+      <button
+        class="btn btn-outline-light btn-md my-2 my-sm-0 ml-3 fas fa-upload"
+        type="submit"
+      >Upload</button>
     </nav>
   </div>
 </template>
