@@ -6,27 +6,30 @@
     <div class="box gallery">
       <div class="card">
         <div class="background">
-          <img class="picture" :src="img" />
+          <img class="picture" :src="img" style="max-width:390px; min-height:395px;" />
         </div>
         <a href="#">
           <i class="fa fa-camera-retro"></i>
         </a>
         <div class="info">
           <h2>Age : {{age}}</h2>
+          <h2>similarities : {{similarities}}</h2>
           <div class="foot">
             <i class="line"></i>
             <span class="date">{{createdAt}}</span>
-            <a href="#" target="_blank" class="social">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" target="_blank" class="social">
-              <i class="fab fa-facebook"></i>
-            </a>
+            <a class="twitter-share-button fab fa-twitter social" href="https://twitter.com/intent/tweet?text=See%20Your%20Age%20Using%20People-Age%20Detection%20http://linkWebsite"></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore social">
+            <div
+              class="fb-share-button"
+              :data-href="img"
+              data-layout="button"
+              data-size="large">
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -34,9 +37,10 @@ export default {
   data() {
     return {
       img:
-        "https://dearevanhansen.com/wp-content/uploads/2019/01/AndrewBarthFeldman_cNathanJohnson.jpg",
+        "https://yt3.ggpht.com/a/AGF-l79zTwp3HfOy-3Jl1Gfs-PQeqMkrP8c02SWYRQ=s900-c-k-c0xffffffff-no-rj-mo",
       age: 20,
-      createdAt: "dibuat"
+      createdAt: "dibuat",
+      similarities: "jansen"
     };
   },
   props: {
@@ -52,6 +56,7 @@ export default {
           this.img = data.person.image;
           this.age = data.person.age;
           this.createdAt = data.person.createdAt;
+          this.similarities = data.person.similarities[0].name
         })
         .catch(err => {
           Swal.fire({
@@ -80,7 +85,7 @@ export default {
   margin: 0 auto;
   overflow: hidden;
   border-radius: 1%;
-  border: 10px #fff solid;
+  border: 10px rgba(0, 0, 0, 0.328) solid;
 }
 
 .gallery .card {
@@ -128,29 +133,31 @@ export default {
   font-size: 18px;
   padding: 0 10px;
   font-weight: 400;
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 
 .gallery .foot {
   height: 35px;
   bottom: -35px;
   position: relative;
-  color: #fff;
+  color: rgb(0, 0, 0);
   padding: 0 10px;
+  font-weight: 500;
 }
 
 .gallery .foot .social {
   float: right;
-  color: #fff;
+  color: rgb(4, 0, 255);
   font-size: 20px;
   margin-left: 20px;
+  margin-bottom: 5px;
 }
 
 .gallery .foot .line {
   height: 2px;
   display: block;
   margin: 10px 0;
-  background-color: #fff;
+  background-color: rgb(255, 33, 3);
   margin-top: 20px;
   width: 0%;
   transition: width 0.6s;
@@ -165,7 +172,7 @@ export default {
   left: 0;
   padding: 10px 10px;
   position: absolute;
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-size: 24px;
   z-index: 1;
   transition: font-size 0.35s;
