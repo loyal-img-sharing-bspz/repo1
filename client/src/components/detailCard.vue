@@ -15,7 +15,7 @@
           <h2>Age : {{age}}</h2>
           <div class="foot">
             <i class="line"></i>
-            <span class="date">18 February 2015</span>
+            <span class="date">{{createdAt}}</span>
             <a href="#" target="_blank" class="social">
               <i class="fab fa-twitter"></i>
             </a>
@@ -35,7 +35,8 @@ export default {
     return {
       img:
         "https://dearevanhansen.com/wp-content/uploads/2019/01/AndrewBarthFeldman_cNathanJohnson.jpg",
-      age: 20
+      age: 20,
+      createdAt: "dibuat"
     };
   },
   props: {
@@ -50,6 +51,7 @@ export default {
         .then(({ data }) => {
           this.img = data.person.image;
           this.age = data.person.age;
+          this.createdAt = data.person.createdAt;
         })
         .catch(err => {
           Swal.fire({
