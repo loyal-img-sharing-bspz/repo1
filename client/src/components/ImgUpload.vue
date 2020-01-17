@@ -58,6 +58,7 @@ export default {
 
       axios.post("http://18.219.119.178:55555/imgUpload", fd)
         .then(({data}) => {
+<<<<<<< HEAD:client/src/components/ImgUpload.vue
           return axios({
             method: "post",
             url: "http://18.219.119.178:55555/person",
@@ -68,6 +69,9 @@ export default {
         })
         .then(({data}) => {
           console.log(data.person);
+=======
+          console.log(data.image);
+>>>>>>> ganti syntax sedikit:client/src/ImgUpload.vue
         })
         .catch((err) => {
           console.error(err);
