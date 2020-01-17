@@ -6,13 +6,11 @@ class PersonController {
          const {image} = req.body
          const similarities = req.similarities
          const age = req.age
+         const category = req.keyword
 
-         // console.log(`nyampe sini\n-------------------\n${image}\n${similarities}\n${age}`)
-
-         const person = await Person.create({image, similarities, age})
+         const person = await Person.create({image, similarities, age, category})
 
          res.status(201).json({person})
-         // res.status(201).json('hehe')
       }
       catch (error) {
          next(error)
@@ -22,7 +20,7 @@ class PersonController {
    static async read(req, res, next) {
       try {
          const people = await Person.find()
-            .sort('created_at', 'desc')
+            .sort({createdAt: 'desc'})
          
          res.status(200).json({people})
       }

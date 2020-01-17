@@ -16,6 +16,11 @@ const personSchema = new Schema({
    age: {
       type: Number,
       default: 0
+   },
+
+   category: {
+      type: String,
+      default: ''
    }
 })
 
