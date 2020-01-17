@@ -36,11 +36,10 @@
 export default {
   data() {
     return {
-      img:
-        "https://yt3.ggpht.com/a/AGF-l79zTwp3HfOy-3Jl1Gfs-PQeqMkrP8c02SWYRQ=s900-c-k-c0xffffffff-no-rj-mo",
-      age: 20,
-      createdAt: "dibuat",
-      similarities: "jansen"
+      img: "",
+      age: null,
+      createdAt: "",
+      similarities: ""
     };
   },
   props: {
