@@ -66,7 +66,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .title {
   margin: 50px auto 0 auto;
   text-align: center;
