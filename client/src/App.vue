@@ -2,7 +2,8 @@
   <div>
     <navbar></navbar>
     <LandingPage v-if="page === 'landingPage'" @gotoImagePage="changePage"></LandingPage>
-    <ImageList v-if="page === 'imagePage'"></ImageList>
+    <ImageList v-if="page === 'imagePage'"></ImageList>=======
+    >>>>>>> 8457c0218109b44478e6631d229d6df0f4459124
     <detailCard></detailCard>
   </div>
 </template>
@@ -15,7 +16,9 @@ import LandingPage from "./views/LandingPage";
 export default {
   components: {
     ImageList,
-    LandingPage
+    LandingPage,
+    navbar,
+    detailCard
   },
   data() {
     return {
