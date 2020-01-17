@@ -1,10 +1,12 @@
 # people-recog
+<hr>
 ## BASE URL:
 http://ec2-18-219-119-178.us-east-2.compute.amazonaws.com:55555
 <hr>
 # img
-<hr>
+
 ## upload image
+
 ### url
 POST /imgUpload
 
@@ -19,7 +21,9 @@ image: [file]
 }
 ```
 <hr>
+
 ## search image
+
 ### url
 GET /imgSearch
 
@@ -29,6 +33,7 @@ q: String (name of a person)
 # person
 
 ## add new person
+
 ### url
 POST /person
 
@@ -59,6 +64,7 @@ image: String (image url string)
 <hr>
 
 ## get people
+
 ### url
 GET /person
 
@@ -102,7 +108,9 @@ GET /person
 }
 ```
 <hr>
+
 ## Get one person
+
 ### url
 GET /person/:id
 
