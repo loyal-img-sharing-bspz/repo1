@@ -67,7 +67,8 @@ export default {
           })
         })
         .then(({data}) => {
-          console.log(data.person);
+          // console.log(data.person);
+          this.$emit('sendId', data.person._id)
         })
         .catch((err) => {
           console.error(err);

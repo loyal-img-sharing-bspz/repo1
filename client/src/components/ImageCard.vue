@@ -1,6 +1,6 @@
 <template>
   <div class="card col-md-3 image-card">
-    <img v-bind:src="image" alt="list-image" class="list-image" />
+    <img v-bind:src="image" alt="list-image" class="list-image" @click="$emit('sendId', imageId)" />
   </div>
 </template>
 
@@ -8,7 +8,8 @@
 export default {
   name: "ImageCard",
   props: {
-    image: String
+    image: String,
+    imageId: String
   }
 };
 </script>

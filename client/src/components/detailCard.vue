@@ -6,13 +6,13 @@
     <div class="box gallery">
       <div class="card">
         <div class="background">
-          <img class="picture" :src="img" style="max-width:390px; min-height:395px;" />
+          <img class="picture card-img-top" :src="img" style="max-width:390px; min-height:395px;" />
         </div>
         <a href="#">
           <i class="fa fa-camera-retro"></i>
         </a>
-        <div class="info">
-          <h2>Age : {{age}}</h2>
+        <div class="info text-white">
+          <h2 style="color:white !important;">Age : {{age}}</h2>
           <h2>similarities : {{similarities}}</h2>
           <div class="foot">
             <i class="line"></i>
@@ -43,12 +43,12 @@ export default {
     };
   },
   props: {
-    id: String
+    id: String,
   },
   methods: {
     getDataDetail() {
       axios({
-        url: `http://localhost:3000/person/${this.id}`,
+        url: `http://18.219.119.178:55555/person/${this.id}`,
         method: "GET"
       })
         .then(({ data }) => {
@@ -56,21 +56,28 @@ export default {
           this.age = data.person.age;
           this.createdAt = data.person.createdAt;
           this.similarities = data.person.similarities[0].name
+
+          console.log(data.person)
         })
         .catch(err => {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!",
-            footer: "<a href>Why do I have this issue?</a>"
-          });
+          // Swal.fire({
+          //   icon: "error",
+          //   title: "Oops...",
+          //   text: "Something went wrong!",
+          //   footer: "<a href>Why do I have this issue?</a>"
+          // });
         });
     }
+  },
+
+  created() {
+    this.getDataDetail()
   }
 };
 </script>
 
 <style scoped>
+
 .title {
   margin: 50px auto 0 auto;
   text-align: center;
@@ -108,18 +115,16 @@ export default {
   left: 0;
   right: 0;
   opacity: 0;
-  background-color: #000;
+  background-color: rgb(255, 253, 253);
   -webkit-transition: opacity 0.35s;
   -o-transition: opacity 0.35s;
   transition: opacity 0.35s;
 }
 
-.gallery .info,
-.gallery .foot {
-  -webkit-transition: bottom 0.35s;
+/* .gallery .info {},400
   -o-transition: bottom 0.35s;
   transition: bottom 0.35s;
-}
+} */
 
 .gallery .info {
   position: absolute;
@@ -131,17 +136,17 @@ export default {
   line-height: 24px;
   font-size: 18px;
   padding: 0 10px;
-  font-weight: 400;
-  color: rgb(0, 0, 0);
+  font-weight: 700;
+  color: white;
 }
 
 .gallery .foot {
   height: 35px;
   bottom: -35px;
   position: relative;
-  color: rgb(0, 0, 0);
   padding: 0 10px;
   font-weight: 500;
+  color: white;
 }
 
 .gallery .foot .social {
@@ -171,7 +176,7 @@ export default {
   left: 0;
   padding: 10px 10px;
   position: absolute;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: 24px;
   z-index: 1;
   transition: font-size 0.35s;

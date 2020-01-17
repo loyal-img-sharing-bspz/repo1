@@ -1,10 +1,10 @@
 <template>
   <div>
-    <Navbar></Navbar>
+    <Navbar @toUpload="page = $event" @toHomepage="page = $event"></Navbar>
     <LandingPage v-if="page === 'landingPage'" @gotoImagePage="changePage"></LandingPage>
-    <ImageList v-if="page === 'imagePage'"></ImageList>
-    <detailCard></detailCard>
-    <ImgUpload></ImgUpload>
+    <ImageList v-if="page === 'imagePage'" @sendId="openDetail"></ImageList>
+    <detailCard v-if="page=='detailPage'" :id="id"></detailCard>
+    <ImgUpload v-if="page == 'uploadPage'" @sendId="openDetail"></ImgUpload>
   </div>
 </template>
 
@@ -25,12 +25,18 @@ export default {
   },
   data() {
     return {
-      page: "landingPage"
+      page: "landingPage",
+      id: ''
     };
   },
   methods: {
     changePage() {
       this.page = "imagePage";
+    },
+
+    openDetail(id) {
+      this.id = id
+      this.page = 'detailPage'
     }
   }
 };

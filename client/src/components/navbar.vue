@@ -17,12 +17,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a @click="homePage" class="nav-item nav-link active" href="#">Home</a>
+          <a @click.prevent="$emit('toHomepage', 'imagePage')" class="nav-item nav-link active" href="#">Home</a>
         </div>
       </div>
       <button
         class="btn btn-outline-light btn-md my-2 my-sm-0 ml-3 fas fa-upload"
         type="submit"
+        @click="$emit('toUpload', 'uploadPage')"
       >Upload</button>
     </nav>
   </div>
@@ -36,13 +37,13 @@ export default {
     };
   },
   method: {
-    homePage() {
-      if (this.homepage) {
-        this.homepage = true;
-      } else {
-        this.homepage = false;
-      }
-    }
+    // homePage() {
+    //   if (this.homepage) {
+    //     this.homepage = true;
+    //   } else {
+    //     this.homepage = false;
+    //   }
+    // }
   }
 };
 </script>

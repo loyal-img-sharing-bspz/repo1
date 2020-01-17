@@ -16,7 +16,8 @@
         v-for="(item, i) in searchArticleComputed"
         v-bind:key="i"
         v-bind:image="item.image"
-        @click="$emit('sendId',item._id)"
+        :imageId="item._id"
+        @sendId="$emit('sendId', $event)"
       />
     </div>
   </div>
@@ -71,6 +72,10 @@ export default {
         .catch(err => {
           console.log(err);
         });
+    },
+
+    sendId(id) {
+      console.log('at sendId', id)
     }
   },
   components: {
