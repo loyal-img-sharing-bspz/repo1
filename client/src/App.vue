@@ -1,24 +1,27 @@
 <template>
   <div>
-    <navbar></navbar>
+    <Navbar></Navbar>
     <LandingPage v-if="page === 'landingPage'" @gotoImagePage="changePage"></LandingPage>
-    <ImageList v-if="page === 'imagePage'"></ImageList>=======
-    >>>>>>> 8457c0218109b44478e6631d229d6df0f4459124
+    <ImageList v-if="page === 'imagePage'"></ImageList>
     <detailCard></detailCard>
+    <ImgUpload></ImgUpload>
   </div>
 </template>
 
 <script>
-import navbar from "./components/navbar";
+import Navbar from "./components/navbar";
 import detailCard from "./components/detailCard";
 import ImageList from "./views/ImageList";
 import LandingPage from "./views/LandingPage";
+import ImgUpload from "./components/ImgUpload";
+
 export default {
   components: {
     ImageList,
     LandingPage,
-    navbar,
-    detailCard
+    Navbar,
+    detailCard,
+    ImgUpload
   },
   data() {
     return {
