@@ -15,7 +15,7 @@ export default {
 
 <style>
 .image-card {
-  padding: 10px;
+  padding: 5px;
   height: 200px;
   width: 300px;
   margin: 5px;
@@ -32,5 +32,6 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  object-fit: cover;
 }
 </style>
