@@ -17,7 +17,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home</a>
+          <a @click="homePage" class="nav-item nav-link active" href="#">Home</a>
         </div>
       </div>
       <button
@@ -29,7 +29,22 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      homepage: false
+    };
+  },
+  method: {
+    homePage() {
+      if (this.homepage) {
+        this.homepage = true;
+      } else {
+        this.homepage = false;
+      }
+    }
+  }
+};
 </script>
 
 <style>
